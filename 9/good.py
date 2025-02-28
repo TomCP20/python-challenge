@@ -10,4 +10,3 @@ with open("input.txt", encoding="utf-8") as f:
     for x, y in both:
         image.putpixel((x, y), (255, 255, 255, 255))
     image.show()
-
