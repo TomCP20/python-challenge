@@ -21,6 +21,6 @@ with gzip.open('deltas.gz') as data:
             f2 += bs
         else:
             f += bs
-    Image.open(io.BytesIO((f))).show()
-    Image.open(io.BytesIO((f1))).show()
-    Image.open(io.BytesIO((f2))).show()
+    Image.open(io.BytesIO(f)).show()
+    Image.open(io.BytesIO(f1)).show()
+    Image.open(io.BytesIO(f2)).show()
