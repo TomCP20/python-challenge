@@ -57,5 +57,8 @@ def main():
         print(z.filelist)
         with z.open("maze.jpg") as f:
             Image.open(f).show()
+        with z.open("mybroken.zip") as f:
+            with open("mybroken.zip", "wb") as o:
+                o.write(f.read())
 
 main()
