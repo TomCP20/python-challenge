@@ -27,6 +27,6 @@ out.putdata(colours)
 out.show()
 
 s = [t[0] for t in zipped if t[0] != t[1]]
-text: bytes = bz2.decompress(bytes(s))
+text: str = bz2.decompress(bytes(s)).decode()
 
-print(set(w for w in text.split() if not keyword.iskeyword(w.decode())))
+print({w for w in text.split() if not keyword.iskeyword(w)})
