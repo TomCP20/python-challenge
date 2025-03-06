@@ -23,7 +23,7 @@ colours = [(255, 255, 255)] * len(raw)
 for i, p in enumerate(zipped):
     if p[0] != p[1]:
         colours[i] = (0, 0, 0)
-out.putdata(colours)
+out.putdata(colours) # type: ignore
 out.show()
 
 s = [t[0] for t in zipped if t[0] != t[1]]

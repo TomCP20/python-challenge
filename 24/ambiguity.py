@@ -46,7 +46,7 @@ def main():
 
     w, h = image.size
     path = bfs(w, h, image)
-    vals = []
+    vals: list[int] = []
     for node in path:
         p = image.getpixel(node)
         assert isinstance(p, tuple)

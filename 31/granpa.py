@@ -17,20 +17,21 @@ xstep = WIDTH / w
 ystep = HEIGHT/ h
 
 mandelbrot = image.copy()
-result = []
+result: list[int] = []
 for y in range(h - 1, -1, -1):
     for x in range(w):
         c = complex(LEFT + x * xstep, BOTTOM + y * ystep)
         z: complex = 0 + 0j
+        i = 0
         for i in range(MAX_ITERATIONS):
             z = z * z + c
             if abs(z) > 2:
                 break
         result.append(i)
-mandelbrot.putdata(result)
+mandelbrot.putdata(result) # type: ignore
 
-diff = filter(None, map(sub, image.getdata(), mandelbrot.getdata()))
+diff = filter(None, map(sub, image.getdata(), mandelbrot.getdata())) # type: ignore
 
 out = Image.new("1", (23, 73))
-out.putdata([i < 16 for i in diff])
+out.putdata([i < 16 for i in diff]) # type: ignore
 out.resize((230,730)).show()

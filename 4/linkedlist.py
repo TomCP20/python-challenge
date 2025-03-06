@@ -3,20 +3,22 @@ import re
 import requests
 
 URL = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing="
-NUM = "12345"
+num: str = "12345"
+response: requests.Response | None = None
 for i in range(400):
-    print(i, NUM)
-    response = requests.get(URL+NUM, timeout=10)
+    print(i, num)
+    response = requests.get(URL+num, timeout=10)
     if response.status_code == 200:
         match = re.search(r"and the next nothing is (\d+)", response.text)
         if match:
-            NUM = match.groups()[0]
+            num = match.groups()[0]
         elif response.text == "Yes. Divide by two and keep going.":
-            NUM = str(int(int(NUM)/2))
+            num: str = str(int(int(num)/2))
         else:
             print("no match")
             break
     else:
-        print(f"Could not find url: {URL+NUM}")
+        print(f"Could not find url: {URL+num}")
         break
-print(response.text)
+if response:
+    print(response.text)

@@ -24,7 +24,7 @@ for frame in range(image.n_frames): # type: ignore
 
     if dx == dy == 0:
         x +=50
-        y = 100
+        y: int = 100
     else:
         x += dx
         y += dy

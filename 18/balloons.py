@@ -5,7 +5,8 @@ import io
 from PIL import Image
 
 with gzip.open('deltas.gz') as data:
-    col1, col2 = [], []
+    col1: list[str] = []
+    col2: list[str] = []
     for line in data:
         col1.append(line[:53].decode()+"\n")
         col2.append(line[56:].decode())

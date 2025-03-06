@@ -1,6 +1,6 @@
 """bonus"""
 import codecs
-import this # pylint: disable=unused-import
+import this # type: ignore # pylint: disable=unused-import
 
 print()
 
